@@ -47,6 +47,9 @@ pip3 install ./wipy
 
 title "Initializing & configuring API"
 
+mkdir www/db
+mkdir www/keys
+
 rm www/db/wipi.db 2>/dev/null
 touch www/db/wipi.db
 sqlite3 www/db/wipi.db "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL, admin INTEGER)"
