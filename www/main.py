@@ -127,6 +127,8 @@ async def _interfaces_monitor_mode(request: Request, interface: WiapiInterface, 
 async def _interfaces_deauth(request: Request, deauth: WiapiDeauth, admin_required=True) -> WiapiResponse:
     iface = list(filter(lambda i: i.name == deauth.interface, wipi.get_interfaces(17)))[0]
 
+    os.system("iwconfig {} channel {}".format(deauth.interface, deauth.channel)) # @wipi_verify_interface prevent cmd injection
+    
     if not iface.monitor_mode:
         raise WiapiHTTPException(
             status_code=400,
