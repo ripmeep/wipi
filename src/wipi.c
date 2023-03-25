@@ -329,7 +329,7 @@ int wipi_deauth(struct __wipi_interface_t* wi,
     for (int i = 0; i < 6; i++)
     {
         memset(tmp, 0, 3);
-        memcpy(tmp, b + i * 2 + (i > 0 ? i : 0), 2);
+        memcpy(tmp, bssid + i * 2 + (i > 0 ? i : 0), 2);
 
         b[i] = strtoul((char*)tmp, NULL, 16);
     }
