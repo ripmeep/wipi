@@ -55,7 +55,7 @@ touch www/db/wipi.db
 sqlite3 www/db/wipi.db "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL UNIQUE, password TEXT NOT NULL, admin INTEGER)"
 sqlite3 www/db/wipi.db "CREATE TABLE jobs(id INTEGER PRIMARY KEY AUTOINCREMENT, interface TEXT NOT NULL, bssid TEXT NOT NULL, start INTEGER, packets INTEGER NOT NULL, delay INTEGER NOT NULL, complete INTEGER)"
 
-python3 -c "import sqlite3, hashlib; conn = sqlite3.connect('www/db/wipi.db'); p = hashlib.sha256('${DEFAULT_API_ADMIN_PASSWORD}'.encode()).digest(); cur = conn.cursor(); cur.execute('INSERT INTO users(username, password, admin) VALUES(?, ?, ?)', (${DEFAULT_API_ADMIN_USERNAME}, p, 1,)); conn.commit()"
+python3 -c "import sqlite3, hashlib; conn = sqlite3.connect('www/db/wipi.db'); p = hashlib.sha256('${DEFAULT_API_ADMIN_PASSWORD}'.encode()).digest(); cur = conn.cursor(); cur.execute('INSERT INTO users(username, password, admin) VALUES(?, ?, ?)', ('${DEFAULT_API_ADMIN_USERNAME}', p, 1,)); conn.commit()"
 
 title "Generating JWT & SSL keys"
 
