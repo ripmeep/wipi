@@ -16,6 +16,9 @@ DEFAULT_API_ADMIN_USERNAME="wipi"
 DEFAULT_API_ADMIN_PASSWORD="wipi"
 
 
+echo -e "\n\033[01;33m _     _  ___   _______  ___  \n| | _ | ||   | |       ||   | \n| || || ||   | |    _  ||   | \n|       ||   | |   |_| ||   | \n|       ||   | |    ___||   | \n|   _   ||   | |   |    |   | \n|__| |__||___| |___|    |___| \033[0m\n"
+
+
 # System dependencies
 
 title "Installing system dependencies"
@@ -66,7 +69,7 @@ title "Generating JWT & SSL keys"
 
 openssl genrsa -out www/keys/jwt_priv.pem 2048
 openssl rsa -in www/keys/jwt_priv.pem -pubout -out www/keys/jwt_pub.pem
-openssl req -x509 -newkey rsa:4096 -keyout www/keys/ssl_priv.pem -out www/keys/ssl_cert.pem -sha256 -days 730
+openssl req -x509 -newkey rsa:4096 -keyout www/keys/ssl_priv.pem -out www/keys/ssl_cert.crt -sha256 -days 730 -nodes -subj '/CN=www.meep.rip/O=ripmeep/C=US'
 
 
 title "Finished"
