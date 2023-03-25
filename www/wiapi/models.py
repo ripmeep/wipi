@@ -18,5 +18,6 @@ class WiapiInterface(BaseModel):
 class WiapiDeauth(BaseModel):
     interface: str
     bssid: str
+    channel: int
     packets: int=200
     delay: int=200
