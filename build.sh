@@ -57,6 +57,11 @@ sqlite3 www/db/wipi.db "CREATE TABLE jobs(id INTEGER PRIMARY KEY AUTOINCREMENT, 
 
 python3 -c "import sqlite3, hashlib; conn = sqlite3.connect('www/db/wipi.db'); p = hashlib.sha256('${DEFAULT_API_ADMIN_PASSWORD}'.encode()).digest(); cur = conn.cursor(); cur.execute('INSERT INTO users(username, password, admin) VALUES(?, ?, ?)', ('${DEFAULT_API_ADMIN_USERNAME}', p, 1,)); conn.commit()"
 
+echo "Finished"
+
+
+# API server-side keys
+
 title "Generating JWT & SSL keys"
 
 openssl genrsa -out www/keys/jwt_priv.pem 2048
