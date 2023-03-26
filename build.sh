@@ -66,6 +66,7 @@ sqlite3 www/db/wiapi.db "CREATE TABLE jobs(id INTEGER PRIMARY KEY AUTOINCREMENT,
 python3 -c "import sqlite3, hashlib; conn = sqlite3.connect('www/db/wiapi.db'); p = hashlib.sha256('${DEFAULT_API_ADMIN_PASSWORD}'.encode()).digest(); cur = conn.cursor(); cur.execute('INSERT INTO users(username, password, admin) VALUES(?, ?, ?)', ('${DEFAULT_API_ADMIN_USERNAME}', p, 1,)); conn.commit()"
 
 chmod +x www/start.sh
+chmod +x www/scripts/monitor_mode.sh
 
 echo "Finished"
 
