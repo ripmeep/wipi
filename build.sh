@@ -26,7 +26,7 @@ title "Installing system dependencies"
 sudo apt-get update
 sudo apt-get install libcurl4-openssl-dev libiw-dev libsqlite3-dev -y # lib dependencies
 sudo apt-get install python3-full python3-dev python3-pip python3-requests -y # python package dependencies
-sudo apt-get install sqlite3 wireless-tools net-tools # sys bin tool dependencies
+sudo apt-get install sqlite3 wireless-tools net-tools -y # sys bin tool dependencies
 
 
 # Python3 modules
