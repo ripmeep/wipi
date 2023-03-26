@@ -111,7 +111,7 @@ async def _interfaces(request: Request) -> WiapiResponse:
 @wiapi_auth_required
 @wiapi_verify_interface
 async def _interfaces_monitor_mode(request: Request, interface: WiapiInterface, admin_required=True) -> WiapiResponse:
-    res = os.system("airmon-ng {} {}".format("start" if interface.active else "stop", interface.interface))
+    res = os.system("scripts/monitor_mode.sh {} {}".format("start" if interface.active else "stop", interface.interface))
 
     if res != 0:
         raise WiapiHTTPException(
