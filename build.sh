@@ -24,7 +24,7 @@ echo -e "\n\033[01;33m _     _  ___   _______  ___  \n| | _ | ||   | |       || 
 title "Installing system dependencies"
 
 sudo apt-get update
-sudo apt-get install libiw-dev libsqlite3-dev -y # lib dependencies
+sudo apt-get install libiw-dev libsqlite3-dev libffi-dev -y # lib dependencies
 sudo apt-get install python3-full python3-dev python3-pip python3-requests -y # python package dependencies
 sudo apt-get install sqlite3 wireless-tools net-tools -y # sys bin tool dependencies
 
