@@ -43,7 +43,12 @@ pip3 install jwt
 
 title "Building dev libraries"
 
-pip3 install ./wipy
+cd wipy
+
+python3 setup.py build
+python3 setup.py install
+
+cd ..
 
 
 # API setup
